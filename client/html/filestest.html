@@ -1,0 +1,42 @@
+<template name="filestest">
+	
+{{#if currentUser}}
+
+
+{{ >fileuploadForm}}
+				
+	{{#each UserFiles}}
+	
+	<div class="joke">
+		<div class="row">
+			
+			<div class=".col-sm-6 .col-md-5 .col-lg-6" id="info">
+				<a target="_blank" href="{{file}}" ><h2 class="joke-title">{{fileName}}</h2></a>	<!-- jokes의 변수들을 바로 출력해준다.(db에 저장된 내용) -->
+				<h2 class="regular joke-desc">{{filePost}}</h2>
+				<p class="meta">Author: {{author}}</p>	
+				<p class="meta">Posted On: {{date}}</p>
+			</div>
+			<div class=".col-sm-6 .col-md-5 .col-md-offset-2 .col-lg-6 .col-lg-offset-0" id="vote">
+				<img src="laugh.png" class="smiley" id="laugh">
+				<img src="puke.png" class="smiley" id="puke">
+			</div>
+			<div class="row" id="score">
+				<h3 class="count red block">{{good}}</h3>
+				<h3 class="count green block">{{bad}}</h3>
+			</div>
+		</div>
+	</div>
+	{{else}}
+	<h1>no files to display</h1>
+	{{/each}}
+
+
+{{else}}
+
+<h1>You Have to login First</h1>
+
+{{/if}}
+
+
+
+</template>

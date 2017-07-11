@@ -1,0 +1,52 @@
+<template name="fileuploadForm">
+	{{#if currentUser}}
+	<!-- Joke Form-->
+	<div id="fileForm-wrap">
+		<center>
+			
+			<h1 class="jokeForm-heading">File Upload</h1>
+			<form class="file-post" enctype="multipart/form-data">
+				<label for="fileName" class="sr-only">fileName</label>
+				<input type="text" name="fileName" id="fileName" class="form-control" placeholder="file name" maxlength="40">
+				<label for="filePost" class="sr-only">filePost</label>
+				<input type="text" name="filePost" id="filePost" class="form-control" placeholder="file info" maxlength="140">
+				<label for="fileUpload">Choose File</label>
+				<span id="selectedfile" >선택파일없음</span>
+				<input type="file" name="fileUpload" id="fileUpload" class="black profileImage"><label for="reset">Reset</label>
+
+				<button class="btn btn-lg btn-success btn-block" type="submit">Upload File</button>
+			</form>
+			<input type="button" name="reset" id="reset" class="black profileImage">
+
+		</center>
+	</div>
+
+	<!-- End Joke Form-->
+	{{else}}
+	<!-- Joke Form-->
+	<div id="jokeForm-wrap">
+		<center>
+			<form class="file-post">
+				<h2 class="form-signin-heading">Log In To Post A File</h2>
+				<a href="/" class="btn btn-md btn-primary" id="login-redir">Login</a>
+			</form>
+		</center>
+	</div>
+	<!-- End Joke Form-->
+	{{/if}}
+
+<script type="text/javascript">
+	$(function() {
+		$("#fileUpload:file").change(function () {
+			var fileName = $(this).val();	//이 파일의 이름을 받아서 filename에 저장하고,
+			$("#selectedfile").text(fileName);	//비어있는 span에 filename을 넣어주고
+			//$("label").hide();	//입력되어있는 label은 숨겨준다.
+		});
+
+	});
+</script>
+
+
+
+
+</template>

@@ -1,0 +1,85 @@
+<template name="files">
+{{#if currentUser}}
+
+	{{ >fileuploadForm}}
+
+
+	<!-- profile -->
+	<div id="profile-wrap">
+		<center>
+			{{#with UserImages}}	<!--이미지 삽입할때의 form-->
+
+			<img src="{{image}}" alt="image" class="profile-img" name="abc"/>
+			<form class="change-profile" enctype="multipart/form-data">
+				<label for="ImageToChange">Change Profile Image</label>
+				<span id="filename1"></span>
+				<input type="file" name="ImageToChange" id="ImageToChange" class="black profileImage">
+				<br>
+				<button type="submit" value="Change Photo" id="profile-btn" class="btn btn-sml btn-primary">Change Photo</button>
+			</form>	
+
+			<button value="test" id="test" class="btn btn-sml btn-primary">test</button>
+			{{else}}
+			<img src="github.svg" class="profile-img">
+			<form class="edit-profile" enctype="multipart/form-data">
+				<label for="profileImage">Choose Profile Image</label>
+				<span id="filename2"></span>
+				<input type="file" name="profileImage" id="profileImage" class="black profileImage">
+				<br>
+				<button type="submit" value="Upload Photo" id="profile-btn" class="btn btn-sml btn-primary">Upload Photo</button>
+			</form>
+
+			{{/with}}
+			
+		</center>
+	</div>
+	<!-- End profile -->
+
+	
+
+<!-- Js for switching file picker span -->
+<script type="text/javascript">
+	$(function() {
+		$("#profileImage:file").change(function () {
+			var fileName = $(this).val();	//이 파일의 이름을 받아서 filename에 저장하고,
+			$("#filename1").text(fileName);	//비어있는 span에 filename을 넣어주고
+			//$("label").hide();	//입력되어있는 label은 숨겨준다.
+		});
+		$("#ImageToChange:file").change(function () {
+			var fileName = $(this).val();	//이 파일의 이름을 받아서 filename에 저장하고,
+			$("#filename2").text(fileName);	//비어있는 span에 filename을 넣어주고
+			//$("label").hide();	//입력되어있는 label은 숨겨준다.
+		});
+	});
+</script>
+
+{{else}}
+
+<h1>You Have to login First</h1>
+
+{{/if}}
+
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+<head>
+	<meta charset="utf-8">
+	<title>EtherShare - the Sharing Project</title>
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,
+	user-scalable=no">
+
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:100,300,400,700' rel='stylesheet'
+	type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700"
+	rel="stylesheet">
+	</head>
+
+<body>
+	{{> bertAlert}}		<!--bertalert 를 쓰려면 이거 써줘야됨 -->
+	{{> sidebar}}		<!-- 이거 적고 레이아웃 템플릿에 yield 써주기 -->
+	<!-- This is where main layout is rendered --> 
+</body>
+
+<template name="main_layout">	<!-- routes 에서 이 템플릿을 레이아웃 템플릿으로 지정하자! -->
+	<div class="main-content">
+		{{> yield}}		<!--yield 적어줘야됨 -->
+	</div>
+</template>
