@@ -1,0 +1,10 @@
+fortawesome:fontawesome
+twbs:bootstrap
+iron:router
+themeteorchef:bert
+accounts-base
+accounts-password
+session
+meteortoys:allthings
+cfs:standard-packages
+cfs:gridfs
