@@ -1,0 +1,6 @@
+<Patient xmlns="http://hl7.org/fhir">
+ <active value="true"/>
+ <name>Joo</name>
+ <gender value="female"/>
+ <birthDate value="1994-00-00"/><!-- 0..1 The date of birth for the individual -->
+</Patient>
