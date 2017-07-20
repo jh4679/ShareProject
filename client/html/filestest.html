@@ -38,6 +38,15 @@
 
 {{/if}}
 
+<script type="text/javascript">
+	$(function() {
+		$("#fileUpload:file").change(function () {
+			var fileName = $(this).val();	//이 파일의 이름을 받아서 filename에 저장하고,
+			$("#selectedfile").text(fileName);	//비어있는 span에 filename을 넣어주고
+			//$("label").hide();	//입력되어있는 label은 숨겨준다.
+		});
 
+	});
+</script>
 
 </template>
