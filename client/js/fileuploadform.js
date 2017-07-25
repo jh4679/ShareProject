@@ -37,12 +37,12 @@ Template.fileuploadForm.events({
                     FileStore.insert(fsFile, function(err, result) { //FileStore collection에 insert해준다. 
                         if (err) { //에러가 나면 에러 보여주고 throw
 
-                            throw new Meteor.Error(err);
+                            throw new Meteor.Error(err);    
                         } else { //정상 작동 했을시
                             fileLoc = '/cfs/files/FileStore/' + result._id ;
                             url = 'http://localhost:3000/cfs/files/FileStore/' + result._id;
 
-                            resolve({fileLoc:fileLoc,url:url});
+                            resolve({fileLoc:fileLoc,url:url}); //성공시에 resolve를 통해 리턴값을 넘겨준다고 생각하면 됨.
                         }
                     });
 
@@ -58,7 +58,7 @@ Template.fileuploadForm.events({
                         console.log(body);
                         parser.parseString(body, function(err, result) {
                             if (err) { //에러가 나면 에러 보여주고 throw
-                                reject({msg:"실패ㅠ"})
+                                reject({msg:"실패ㅠ"}) //에러가 나면 msg에 실패 ㅠ를 담아서 리턴
                             } 
                             else{
                                 UserFiles.insert({
@@ -78,7 +78,7 @@ Template.fileuploadForm.events({
                             //console.log(result);            //xmlresult.Patient.name[0] = Park                
                                                             //result.Patient.birthDate[0].$.value = 1992-12-02
                                                             //result.Patient.gender[0].$.value = male
-                                resolve({msg:"파싱성공!!"});
+                                resolve({msg:"파싱성공!!"});    //성공하면 msg에 파싱성공!!을 담아서 리턴 
                             }
                         });
                     });
@@ -88,21 +88,21 @@ Template.fileuploadForm.events({
                 return new Promise(function (resolve, reject) {
                     setTimeout(function () {
                         resolve(val);
-                    }, (time*1000) );
+                    }, (time*1000) );   
                 });
             };
 
             filesavefunc().then(function(result){
-                console.log(result.fileLoc);
-                console.log(result.url);
+                console.log(result.fileLoc);    //'/cfs/files/FileStore/' + result._id 
+                console.log(result.url);    //'http://localhost:3000/cfs/files/FileStore/' + result._id
 
-                return timeout(0.3,result);     //파일 업로드에 시간이 좀 걸리기 때문에 잠깐의 타임아웃 텀을 두어야 한다.
+                return timeout(0.3,result);     //파일 업로드에 시간이 좀 걸리기 때문에 잠깐의 타임아웃 텀을 두어야 한다.(0.3초)
             }).then(function(result){
                 console.log(result);
 
                 return Parsefunc(result);
             }).then(function(result){
-                console.log(result.msg);
+                console.log(result.msg);    //msg 를 출력해준다. 성공/실패시에 다른 메시지가 출력됨
             })
             /*
             promisefunc(true,"filesave")
@@ -230,16 +230,7 @@ Template.fileuploadForm.events({
 });
 
 // Validation Rules
-function promisefunc(flag,val){
-    return new Promise(function(resolve,reject){
-        if(flag){
-            resolve(val);
-        }
-        else{
-            reject("실패");
-        }
-    })
-}
+
 var isNotEmpty = function(value) { //빈칸인지 아닌지 체크
     if (value && value !== '') {
         return true;

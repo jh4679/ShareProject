@@ -1,5 +1,5 @@
-<template name="search"></template>
-<!--
+
+
 <template name="search">
 {{#if currentUser}}
 
@@ -10,7 +10,7 @@
 		</div>
 
 		{{#EasySearch.IfInputEmpty index=index }}
-			<div class="padded examples black">For example "Yo Mamma"</div>
+			<div class="padded examples black">For example "Park"</div>
 		{{else}}
 			{{#if resultsCount}}
 				<div class="padded count-results black">{{resultsCount}} results found.</div>
@@ -51,7 +51,7 @@
 
 <template name="User">
 	<li class="user black {{selected}}" id="user-link">
-		<span class="name">{{jokeName}}</span>
+		<span class="name">{{fileName}}</span>
 		{{#if selected}}
 		<div class="jokeInfo">
 			<div>
@@ -63,15 +63,15 @@
 			</div>
 				<br>
 			<div>
-				<span class="vote-score red">Laugh Score: {{laughScore}}</span>
+				<span class="red">PatientName: {{patientname}} </span>
 			</div>
 				<br>
 			<div>
-				<span class="vote-score yellow">Frown Score: {{frownScore}}</span>
+				<span class="yellow">birthdate: {{patientbirthdate}} </span>
 			</div>
 				<br>
 			<div>
-				<span class="vote-score green">Puke Score: {{pukeScore}}</span>
+				<span class="green">gender: {{patientgender}}</span>
 			</div>
 		</div>
 		{{/if}}
@@ -84,7 +84,7 @@
 
 
 
--->
+
 
 
 

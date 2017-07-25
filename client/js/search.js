@@ -7,23 +7,23 @@ Template.search.rendered = function() {
 	$("#login-link").removeClass('selected');
 	$("#files-link").removeClass('selected');
 }
-/*
+
 Template.search.helpers({
 	inputAttributes: function() {
 		return { 'class': 'easy-search-input', 'placeholder': 'Start Searching' };
 	},
 	players: function() {
-		return Jokes.find({}, { sort: { createdAt: -1 } });
+		return UserFiles.find({}, { sort: { createdAt: -1 } });
 	},
 	selectedName: function() {
-		var joke = JokesIndex.config.mongoCollection.findOne({ __originalId: Session.get("selectedJoke") });
-		return joke && joke.jokeName;
+		var file = FileIndex.config.mongoCollection.findOne({ __originalId: Session.get("selectedfile") });
+		return file && file.patientname;
 	},
 	index: function () {
-		return JokesIndex;
+		return FileIndex;
 	},
 	resultsCount: function() {
-		return JokesIndex.getComponentDict().get('count');
+		return FileIndex.getComponentDict().get('count');
 	},
 	showMore: function() {
 		return false;
@@ -35,13 +35,17 @@ Template.search.helpers({
 
 Template.User.helpers({
 	selected: function() {
-		return Session.equals("selectedJoke", this.__originalId) ? "selected" : '';
+		return Session.equals("selectedfile", this.__originalId) ? "selected" : '';
 	},
 });
 
 Template.User.events({
 	'click': function() {
-		Session.set("selectedJoke", this.__originalId);
+		if(Session.equals("selectedfile",this.__originalId)){
+			Session.set("selectedfile",'');
+		}
+		else
+		Session.set("selectedfile", this.__originalId);
+
 	}
 });
-*/
