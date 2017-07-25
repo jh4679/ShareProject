@@ -10,7 +10,7 @@ Template.filestest.rendered = function() {
 	$("#search-link").removeClass('selected');
 	$("#login-link").removeClass('selected');
 	$("#profile-link").removeClass('selected');
-    $("#board-link").removeClass('selected');
+
 }
 
 Template.filestest.helpers({

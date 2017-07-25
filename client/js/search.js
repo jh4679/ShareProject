@@ -6,7 +6,6 @@ Template.search.rendered = function() {
 	$("#jokes-link").removeClass('selected');
 	$("#login-link").removeClass('selected');
 	$("#files-link").removeClass('selected');
-	$("#board-link").removeClass('selected');
 }
 
 Template.search.helpers({

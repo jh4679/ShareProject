@@ -5,7 +5,6 @@ Template.jokes.rendered = function() {
 	$("#search-link").removeClass('selected');
 	$("#login-link").removeClass('selected');
 	$("#files-link").removeClass('selected');
-	$("#board-link").removeClass('selected');
 }
 
 Template.jokes.helpers({
