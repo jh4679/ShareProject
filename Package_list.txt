@@ -8,3 +8,4 @@ session
 meteortoys:allthings
 cfs:standard-packages
 cfs:gridfs
+easy:search
