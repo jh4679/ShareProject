@@ -11,7 +11,7 @@ Template.login.rendered = function() {
 	$("#search-link").removeClass('selected');
 	$("#jokes-link").removeClass('selected');
 	$("#files-link").removeClass('selected');
-
+	$("#board-link").removeClass('selected');
 }
 
 Template.login.events({

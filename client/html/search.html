@@ -1,12 +1,17 @@
-
-
 <template name="search">
 {{#if currentUser}}
 
 	<div id="search-wrap">
 
 		<div class="black searchbar">
-			{{> EasySearch.Input index=index attributes=inputAttributes }}
+			{{> EasySearch.FieldInput field="fileName" index=index attributes=inputAttributes }}
+			<span id="searchinput"></span>
+		</div>
+
+		<div class="black searchbar" id="searchCheckBox">
+		SearchOption:  <label for="name" style="cursor:pointer"><input type="checkbox" id="name" /> 이름</label>
+		<label for="filename" style="cursor:pointer"><input type="checkbox" id="filename" /> 파일이름</label>
+		<label for="gender" style="cursor:pointer"><input type="checkbox" id="gender" /> 성별</label>
 		</div>
 
 		{{#EasySearch.IfInputEmpty index=index }}
@@ -17,9 +22,21 @@
 			{{/if}}
 		{{/EasySearch.IfInputEmpty}}
 
+		
+		SortingOption:  <select class="sorting">
+		    <option value="name">name</option>
+		    <option value="newest">Newest</option>
+		    <option value="gender">gender</option>
+		</select>
 		{{#EasySearch.IfSearching index=index }}
+		<br>
 			<div>Searching</div>
 		{{/EasySearch.IfSearching}}
+
+		{{#EasySearch.IfNoResults index=index }}
+			<div class="padded no-results black">No results found</div>
+		{{else}}
+		{{/EasySearch.IfNoResults}}
 
 		<ol class="leaderboard">
 			{{#EasySearch.Each index=index }}
@@ -27,10 +44,8 @@
 			{{/EasySearch.Each}}	
 		</ol>
 
-		{{#EasySearch.IfNoResults index=index }}
-			<div class="padded no-results black">No results found</div>
-		{{else}}
-		{{/EasySearch.IfNoResults}}
+
+		
 
 		{{> EasySearch.Pagination index=index maxPages=10 }}
 		{{! > EasySearch.LoadMore index=index}}
@@ -45,8 +60,30 @@
 
 		{{/if}}
 	</div>
+{{else}}
+
+	<div id="jokeForm-wrap">
+		<center>
+			<form class="joke-post">
+				<h2 class="form-signin-heading">Log In To Search a File</h2>
+				<a href="/login" class="btn btn-md btn-primary" id="login-redir">Login</a>
+			</form>
+		</center>
+	</div>
 
 {{/if}}
+<script type="text/javascript">
+	$(function() {
+		$("#searchCheckBox").change(function () {
+
+			$("#searchinput").text("{{> EasySearch.FieldInput field='fileName' index=index attributes=inputAttributes }}");	
+			//비어있는 span에 filename을 넣어주고
+			//$("label").hide();	//입력되어있는 label은 숨겨준다.
+		});
+	});
+	
+</script>
+
 </template>
 
 <template name="User">
@@ -77,14 +114,6 @@
 		{{/if}}
 	</li>
 </template>
-
-
-
-
-
-
-
-
 
 
 

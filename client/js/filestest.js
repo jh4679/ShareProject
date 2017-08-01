@@ -10,7 +10,7 @@ Template.filestest.rendered = function() {
 	$("#search-link").removeClass('selected');
 	$("#login-link").removeClass('selected');
 	$("#profile-link").removeClass('selected');
-
+    $("#board-link").removeClass('selected');
 }
 
 Template.filestest.helpers({
@@ -24,7 +24,7 @@ Template.filestest.events({
 
        var userId = UserFiles.findOne({ _id: this._id })._id;
        var url = 'http://localhost:3000' + UserFiles.findOne({ _id: this._id }).file;
-       parseXml(url,userId);
+       console.log(url);
 	}
 
 });
