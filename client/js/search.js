@@ -7,7 +7,6 @@ Template.search.rendered = function() {
 	$("#login-link").removeClass('selected');
 	$("#files-link").removeClass('selected');
 	$("#board-link").removeClass('selected');
-
 }
 
 Template.search.helpers({
@@ -50,13 +49,4 @@ Template.User.events({
 		Session.set("selectedfile", this.__originalId);
 
 	}
-
-   	
 });
-Template.search.events({
-	'change .sorting': (e) => {
-    FileIndex.getComponentMethods().addProps('sortBy', $(e.target).val());
-    console.log($(e.target).val());
-   	}
-
-})

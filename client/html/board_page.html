@@ -1,0 +1,25 @@
+<template name="postPage"> <!--게시글을 눌렀을때 보이는 개별 게시글-->
+  {{> postDiscuss}}
+    <ul class="comments">
+    {{#each comments}}
+      {{> commentItem}}
+    {{/each}}
+    </ul>
+
+    {{#if currentUser}}
+    	{{> commentSubmit}}
+  	{{else}}
+    	<p>Please log in to leave a comment.</p>
+  	{{/if}}
+</template>
+
+<template name="postDiscuss"> <!--게시글을 눌렀을때 보이는 개별 게시글 -->
+  <div class="post">
+    <div class="post-content">
+      <h2>Title : {{title}}</h2>
+      <span>Author : {{postname}}</span>
+      <p>Description</p>
+      <p>{{description}}</p>
+    </div>
+  </div>
+</template>

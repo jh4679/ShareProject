@@ -24,7 +24,7 @@ Template.filestest.events({
 
        var userId = UserFiles.findOne({ _id: this._id })._id;
        var url = 'http://localhost:3000' + UserFiles.findOne({ _id: this._id }).file;
-       console.log(url);
+       parseXml(url,userId);
 	}
 
 });

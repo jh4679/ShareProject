@@ -33,14 +33,14 @@ Template.fileuploadForm.events({
 
             var filesavefunc = function () {
                 return new Promise(function (resolve, reject) {
-                
+                    var url,fileLoc;
                     FileStore.insert(fsFile, function(err, result) { //FileStore collection에 insert해준다. 
                         if (err) { //에러가 나면 에러 보여주고 throw
 
                             throw new Meteor.Error(err);    
                         } else { //정상 작동 했을시
-                            var fileLoc = '/cfs/files/FileStore/' + result._id ;
-                            var url = 'http://localhost:3000/cfs/files/FileStore/' + result._id;
+                            fileLoc = '/cfs/files/FileStore/' + result._id ;
+                            url = 'http://localhost:3000/cfs/files/FileStore/' + result._id;
 
                             resolve({fileLoc:fileLoc,url:url}); //성공시에 resolve를 통해 리턴값을 넘겨준다고 생각하면 됨.
                         }
@@ -97,10 +97,6 @@ Template.fileuploadForm.events({
                 console.log(result.url);    //'http://localhost:3000/cfs/files/FileStore/' + result._id
 
                 return timeout(0.3,result);     //파일 업로드에 시간이 좀 걸리기 때문에 잠깐의 타임아웃 텀을 두어야 한다.(0.3초)
-            }).then(function(result){
-                console.log(result);
-
-                return Parsefunc(result);
             }).then(function(result){
                 console.log(result);
 
