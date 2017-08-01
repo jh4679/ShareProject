@@ -1,334 +1,298 @@
 Meteor.startup(function() {
-  if (Meteor.users.find().count() === 0) {
-    // create a date string
-    var year = new Date().getFullYear();
-    var month = new Date().getMonth() + 1;
-    var day = new Date().getDate();
-    var date = (month + "/" + day + "/" + year).toString();
+    if (Meteor.users.find().count() === 0) {
+        // create a date string
+        var year = new Date().getFullYear();
+        var month = new Date().getMonth() + 1;
+        var day = new Date().getDate();
+        var date = (month + "/" + day + "/" + year).toString();
 
-    	// Super User
-      Accounts.createUser({
-        username: 'Super User',
-        email: 'Super@user.com',
-        password: 'password',
-        profile: {
-        	laughScore: 0,
-        	frownScore: 0,
-          pukeScore: 0,
-        }
-      });
+        Accounts.createUser({
+            username: 'Super User',
+            email: 'Super@user.com',
+            password: 'password',
+            profile: {
+                laughScore: 0,
+                frownScore: 0,
+                pukeScore: 0,
+            }
+        });
 
-      var user0Id = Meteor.users.findOne({username: 'Super User'})._id;
+        Accounts.createUser({
+            username: 'User1',
+            email: 'user1@example.com',
+            password: 'password',
+            profile: {
+                laughScore: 0,
+                frownScore: 0,
+                pukeScore: 0,
+            }
+        });
 
-      Jokes.insert({
-        jokeName: "Lame Joke 1",
-        jokePost: "This is a very very lame joke",
-        author: "Super User",
-        date: date,
-        createdAt: new Date(),
-        laughScore: 0,
-        frownScore: 0,
-        pukeScore: 0,
-        voted: ["Super User"],
-        userId: user0Id,
-      });
-      console.log("Super User Created");
-      console.log("Super User Joke Created");
+        Accounts.createUser({
+            username: 'User2',
+            email: 'user2@example.com',
+            password: 'password',
+            profile: {
+                laughScore: 0,
+                frownScore: 0,
+                pukeScore: 0,
+            }
+        });
 
-      // User 1
-      Accounts.createUser({
-        username: 'User1',
-        email: 'user1@example.com',
-        password: 'password',
-        profile: {
-          laughScore: 0,
-          frownScore: 0,
-          pukeScore: 0,
-        }
-      });
+        Accounts.createUser({
+            username: 'User3',
+            email: 'user3@example.com',
+            password: 'password',
+            profile: {
+                laughScore: 0,
+                frownScore: 0,
+                pukeScore: 0,
+            }
+        });
 
-      var user1Id = Meteor.users.findOne({username: 'User1'})._id;
+        Accounts.createUser({
+            username: 'User4',
+            email: 'user4@example.com',
+            password: 'password',
+            profile: {
+                laughScore: 0,
+                frownScore: 0,
+                pukeScore: 0,
+            }
+        });
 
-      Jokes.insert({
-        jokeName: "Funny Joke 1",
-        jokePost: "This is a very very Funny joke",
-        author: "User1",
-        date: date,
-        createdAt: new Date(),
-        laughScore: 0,
-        frownScore: 0,
-        pukeScore: 0,
-        voted: ["User1"],
-        userId: user1Id,
-      });
-      console.log("User1 Created");
-      console.log("User1 Joke Created");
+        Accounts.createUser({
+            username: 'User5',
+            email: 'user5@example.com',
+            password: 'password',
+            profile: {
+                laughScore: 0,
+                frownScore: 0,
+                pukeScore: 0,
+            }
+        });
 
-      // User 2
-      Accounts.createUser({
-        username: 'User2',
-        email: 'user2@example.com',
-        password: 'password',
-        profile: {
-          laughScore: 0,
-          frownScore: 0,
-          pukeScore: 0,
-        }
-      });
+        Accounts.createUser({
+            username: 'User6',
+            email: 'user6@example.com',
+            password: 'password',
+            profile: {
+                laughScore: 0,
+                frownScore: 0,
+                pukeScore: 0,
+            }
+        });
 
-      var user2Id = Meteor.users.findOne({username: 'User2'})._id;
+        Accounts.createUser({
+            username: 'User7',
+            email: 'user7@example.com',
+            password: 'password',
+            profile: {
+                laughScore: 0,
+                frownScore: 0,
+                pukeScore: 0,
+            }
+        });
 
-      Jokes.insert({
-        jokeName: "Nasty Joke 1",
-        jokePost: "This is a very very Nasty joke",
-        author: "User2",
-        date: date,
-        createdAt: new Date(),
-        laughScore: 0,
-        frownScore: 0,
-        pukeScore: 0,
-        voted: ["User2"],
-        userId: user2Id,
-      });
-      console.log("User2 Created");
-      console.log("User2 Joke Created");
+        Accounts.createUser({
+            username: 'User8',
+            email: 'user8@example.com',
+            password: 'password',
+            profile: {
+                laughScore: 0,
+                frownScore: 0,
+                pukeScore: 0,
+            }
+        });
 
-      // User 3
-      Accounts.createUser({
-        username: 'User3',
-        email: 'user3@example.com',
-        password: 'password',
-        profile: {
-          laughScore: 0,
-          frownScore: 0,
-          pukeScore: 0,
-        }
-      });
+        Accounts.createUser({
+            username: 'User9',
+            email: 'user9@example.com',
+            password: 'password',
+            profile: {
+                laughScore: 0,
+                frownScore: 0,
+                pukeScore: 0,
+            }
+        });
 
-      var user3Id = Meteor.users.findOne({username: 'User3'})._id;
+        Accounts.createUser({
+            username: 'User10',
+            email: 'user10@example.com',
+            password: 'password',
+            profile: {
+                laughScore: 0,
+                frownScore: 0,
+                pukeScore: 0,
+            }
+        });
 
-      Jokes.insert({
-        jokeName: "Funny Joke 2",
-        jokePost: "This is a very very Funny joke",
-        author: "User3",
-        date: date,
-        createdAt: new Date(),
-        laughScore: 0,
-        frownScore: 0,
-        pukeScore: 0,
-        voted: ["User3"],
-        userId: user3Id,
-      });
-      console.log("User3 Created");
-      console.log("User3 Joke Created");
+        var user0Id = Meteor.users.findOne({ username: 'Super User' })._id;
+        var user1Id = Meteor.users.findOne({ username: 'User1' })._id;
+        var user2Id = Meteor.users.findOne({ username: 'User2' })._id;
+        var user3Id = Meteor.users.findOne({ username: 'User3' })._id;
+        var user4Id = Meteor.users.findOne({ username: 'User4' })._id;
+        var user5Id = Meteor.users.findOne({ username: 'User5' })._id;
+        var user6Id = Meteor.users.findOne({ username: 'User6' })._id;
+        var user7Id = Meteor.users.findOne({ username: 'User7' })._id;
+        var user8Id = Meteor.users.findOne({ username: 'User8' })._id;
+        UserFiles.insert({
+            fileName: "Patient 1",
+            filePost: "patient info 0",
+            file: "",
+            author: "User0",
+            date: date,
+            createdAt: new Date(), //이거 추가한 날짜및 시간
+            voted: ['Super User'], //투표한 사람 이름 저장
+            userId: user1Id, //현재 로그인한 유저의 id 저장
+            patientname: "Park",
+            patientbirthdate: 1900 - 00 - 00,
+            patientgender: "male"
 
-      // User 4
-      Accounts.createUser({
-        username: 'User4',
-        email: 'user4@example.com',
-        password: 'password',
-        profile: {
-          laughScore: 0,
-          frownScore: 0,
-          pukeScore: 0,
-        }
-      });
+        });
+        UserFiles.insert({
+            fileName: "Patient 1",
+            filePost: "patient info 1",
+            file: "",
+            author: "User1",
+            date: date,
+            createdAt: new Date(), //이거 추가한 날짜및 시간
+            voted: ["User1"], //투표한 사람 이름 저장
+            userId: user1Id, //현재 로그인한 유저의 id 저장
+            patientname: "Jang",
+            patientbirthdate: 1900 - 00 - 00,
+            patientgender: "female"
 
-      var user4Id = Meteor.users.findOne({username: 'User4'})._id;
+        });
+        UserFiles.insert({
+            fileName: "Patient 2",
+            filePost: "patient info 2",
+            file: "",
+            author: "User2",
+            date: date,
+            createdAt: new Date(), //이거 추가한 날짜및 시간
+            voted: ["User2"], //투표한 사람 이름 저장
+            userId: user1Id, //현재 로그인한 유저의 id 저장
+            patientname: "Kim",
+            patientbirthdate: 1900 - 00 - 00,
+            patientgender: "male"
 
-      Jokes.insert({
-        jokeName: "Lame Joke 2",
-        jokePost: "This is a very very Lame joke",
-        author: "User4",
-        date: date,
-        createdAt: new Date(),
-        laughScore: 0,
-        frownScore: 0,
-        pukeScore: 0,
-        voted: ["User4"],
-        userId: user4Id,
-      });
-      console.log("User4 Created");
-      console.log("User4 Joke Created");
+        });
+        UserFiles.insert({
+            fileName: "Patient 3",
+            filePost: "patient info 3",
+            file: "",
+            author: "User3",
+            date: date,
+            createdAt: new Date(), //이거 추가한 날짜및 시간
+            voted: ["User3"], //투표한 사람 이름 저장
+            userId: user1Id, //현재 로그인한 유저의 id 저장
+            patientname: "Lee",
+            patientbirthdate: 1900 - 00 - 00,
+            patientgender: "female"
 
-      // User 5
-      Accounts.createUser({
-        username: 'User5',
-        email: 'user5@example.com',
-        password: 'password',
-        profile: {
-          laughScore: 0,
-          frownScore: 0,
-          pukeScore: 0,
-        }
-      });
+        });
+        UserFiles.insert({
+            fileName: "Patient 4",
+            filePost: "patient info 4",
+            file: "",
+            author: "User4",
+            date: date,
+            createdAt: new Date(), //이거 추가한 날짜및 시간
+            voted: ["User4"], //투표한 사람 이름 저장
+            userId: user1Id, //현재 로그인한 유저의 id 저장
+            patientname: "Son",
+            patientbirthdate: 1900 - 00 - 00,
+            patientgender: "male"
 
-      var user5Id = Meteor.users.findOne({username: 'User5'})._id;
+        });
+        UserFiles.insert({
+            fileName: "Patient 5",
+            filePost: "patient info 5",
+            file: "",
+            author: "User5",
+            date: date,
+            createdAt: new Date(), //이거 추가한 날짜및 시간
+            voted: ["User5"], //투표한 사람 이름 저장
+            userId: user1Id, //현재 로그인한 유저의 id 저장
+            patientname: "Han",
+            patientbirthdate: 1900 - 00 - 00,
+            patientgender: "female"
 
-      Jokes.insert({
-        jokeName: "Nasty Joke 2",
-        jokePost: "This is a very very Nasty joke",
-        author: "User5",
-        date: date,
-        createdAt: new Date(),
-        laughScore: 0,
-        frownScore: 0,
-        pukeScore: 0,
-        voted: ["User5"],
-        userId: user5Id,
-      });
-      console.log("User5 Created");
-      console.log("User5 Joke Created");
+        });
+        UserFiles.insert({
+            fileName: "Patient 6",
+            filePost: "patient info 6",
+            file: "",
+            author: "User6",
+            date: date,
+            createdAt: new Date(), //이거 추가한 날짜및 시간
+            voted: ["User6"], //투표한 사람 이름 저장
+            userId: user1Id, //현재 로그인한 유저의 id 저장
+            patientname: "Kang",
+            patientbirthdate: 1900 - 00 - 00,
+            patientgender: "male"
 
-      // User 6
-      Accounts.createUser({
-        username: 'User6',
-        email: 'user6@example.com',
-        password: 'password',
-        profile: {
-          laughScore: 0,
-          frownScore: 0,
-          pukeScore: 0,
-        }
-      });
+        });
+        UserFiles.insert({
+            fileName: "Patient 7",
+            filePost: "patient info 7",
+            file: "",
+            author: "User7",
+            date: date,
+            createdAt: new Date(), //이거 추가한 날짜및 시간
+            voted: ["User7"], //투표한 사람 이름 저장
+            userId: user1Id, //현재 로그인한 유저의 id 저장
+            patientname: "Choi",
+            patientbirthdate: 1900 - 00 - 00,
+            patientgender: "female"
 
-      var user6Id = Meteor.users.findOne({username: 'User6'})._id;
+        });
+        UserFiles.insert({
+            fileName: "Patient 8",
+            filePost: "patient info 8",
+            file: "",
+            author: "User8",
+            date: date,
+            createdAt: new Date(), //이거 추가한 날짜및 시간
+            voted: ["User8"], //투표한 사람 이름 저장
+            userId: user1Id, //현재 로그인한 유저의 id 저장
+            patientname: "Nam",
+            patientbirthdate: 1900 - 00 - 00,
+            patientgender: "male"
 
-      Jokes.insert({
-        jokeName: "Funny Joke 3",
-        jokePost: "This is a very very Funny joke",
-        author: "User6",
-        date: date,
-        createdAt: new Date(),
-        laughScore: 0,
-        frownScore: 0,
-        pukeScore: 0,
-        voted: ["User6"],
-        userId: user6Id,
-      });
-      console.log("User6 Created");
-      console.log("User6 Joke Created");
+        });
+        UserFiles.insert({
+            fileName: "Patient 9",
+            filePost: "patient info 9",
+            file: "",
+            author: "User9",
+            date: date,
+            createdAt: new Date(), //이거 추가한 날짜및 시간
+            voted: ["User9"], //투표한 사람 이름 저장
+            userId: user1Id, //현재 로그인한 유저의 id 저장
+            patientname: "Ok",
+            patientbirthdate: 1900 - 00 - 00,
+            patientgender: "female"
 
-      // User 7
-      Accounts.createUser({
-        username: 'User7',
-        email: 'user7@example.com',
-        password: 'password',
-        profile: {
-          laughScore: 0,
-          frownScore: 0,
-          pukeScore: 0,
-        }
-      });
+        });
+        UserFiles.insert({
+            fileName: "Patient 10",
+            filePost: "patient info 10",
+            file: "",
+            author: "User10",
+            date: date,
+            createdAt: new Date(), //이거 추가한 날짜및 시간
+            voted: ["User10"], //투표한 사람 이름 저장
+            userId: user1Id, //현재 로그인한 유저의 id 저장
+            patientname: "Wang",
+            patientbirthdate: 1900 - 00 - 00,
+            patientgender: "male"
 
-      var user7Id = Meteor.users.findOne({username: 'User7'})._id;
-
-      Jokes.insert({
-        jokeName: "Lame Joke 3",
-        jokePost: "This is a very very Lame joke",
-        author: "User7",
-        date: date,
-        createdAt: new Date(),
-        laughScore: 0,
-        frownScore: 0,
-        pukeScore: 0,
-        voted: ["User7"],
-        userId: user7Id,
-      });
-      console.log("User7 Created");
-      console.log("User7 Joke Created");
-
-      // User 8
-      Accounts.createUser({
-        username: 'User8',
-        email: 'user8@example.com',
-        password: 'password',
-        profile: {
-          laughScore: 0,
-          frownScore: 0,
-          pukeScore: 0,
-        }
-      });
-
-      var user8Id = Meteor.users.findOne({username: 'User8'})._id;
-
-      Jokes.insert({
-        jokeName: "Nasty Joke 3",
-        jokePost: "This is a very very Nasty joke",
-        author: "User8",
-        date: date,
-        createdAt: new Date(),
-        laughScore: 0,
-        frownScore: 0,
-        pukeScore: 0,
-        voted: ["User8"],
-        userId: user8Id,
-      });
-      console.log("User8 Created");
-      console.log("User8 Joke Created");
-
-      // User 9
-      Accounts.createUser({
-        username: 'User9',
-        email: 'user9@example.com',
-        password: 'password',
-        profile: {
-          laughScore: 0,
-          frownScore: 0,
-          pukeScore: 0,
-        }
-      });
-
-      var user9Id = Meteor.users.findOne({username: 'User9'})._id;
-
-      Jokes.insert({
-        jokeName: "Funny Joke 3",
-        jokePost: "This is a very very Funny joke",
-        author: "User9",
-        date: date,
-        createdAt: new Date(),
-        laughScore: 0,
-        frownScore: 0,
-        pukeScore: 0,
-        voted: ["User9"],
-        userId: user9Id,
-      });
-      console.log("User9 Created");
-      console.log("User9 Joke Created");
-
-      // User 10
-      Accounts.createUser({
-        username: 'User10',
-        email: 'user10@example.com',
-        password: 'password',
-        profile: {
-          laughScore: 0,
-          frownScore: 0,
-          pukeScore: 0,
-        }
-      });
-
-      var user10Id = Meteor.users.findOne({username: 'User10'})._id;
-
-      Jokes.insert({
-        jokeName: "Nasty Joke 4",
-        jokePost: "This is a very very Nasty joke",
-        author: "User10",
-        date: date,
-        createdAt: new Date(),
-        laughScore: 0,
-        frownScore: 0,
-        pukeScore: 0,
-        voted: ["User10"],
-        userId: user10Id,
-      });
-      console.log("User10 Created");
-      console.log("User10 Joke Created");
-
-      console.log("  ");
-      console.log("User Database Seeded! Now get to work! :)");
-      console.log("Jokes Database Seeded! Isn't that nice?! :P");
-
-  }
+        });
+        console.log("    ");
+        console.log("User & UserFile Database Seeded! Isn't that nice?! :P ");
+        console.log("Now get to work! :)");
+    }
 
 });

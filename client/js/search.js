@@ -2,8 +2,6 @@
 Template.search.rendered = function() {
 	$("#search-link").addClass('selected');
 	$("#profile-link").removeClass('selected');
-	$("#rankings-link").removeClass('selected');
-	$("#jokes-link").removeClass('selected');
 	$("#login-link").removeClass('selected');
 	$("#files-link").removeClass('selected');
 	$("#board-link").removeClass('selected');
@@ -50,3 +48,10 @@ Template.User.events({
 
 	}
 });
+Template.search.events({
+	'change .sorting': (e) => {
+    FileIndex.getComponentMethods().addProps('sortBy', $(e.target).val());
+    console.log($(e.target).val());
+   	}
+
+})

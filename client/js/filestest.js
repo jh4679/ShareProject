@@ -5,8 +5,6 @@ var parser = new xml2js.Parser();
 
 Template.filestest.rendered = function() {
 	$("#files-link").addClass('selected');
-	$("#jokes-link").removeClass('selected');
-	$("#rankings-link").removeClass('selected');
 	$("#search-link").removeClass('selected');
 	$("#login-link").removeClass('selected');
 	$("#profile-link").removeClass('selected');
@@ -24,7 +22,7 @@ Template.filestest.events({
 
        var userId = UserFiles.findOne({ _id: this._id })._id;
        var url = 'http://localhost:3000' + UserFiles.findOne({ _id: this._id }).file;
-       parseXml(url,userId);
+       console.log(url);
 	}
 
 });
