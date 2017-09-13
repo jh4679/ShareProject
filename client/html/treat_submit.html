@@ -1,4 +1,4 @@
-<template name="postSubmit">
+<template name="treatSubmit">
   <form class="main form">
     <div class="form-group">
       <label class="control-label" for="title">Title</label>
@@ -7,15 +7,21 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label" for="Name">Name</label>
+      <label class="control-label" for="Name">Patient Name</label>
       <div class="controls">
-          <input name="postname" id="postname" type="text" value="" placeholder="Write your name" class="form-control"/>
+          <input name="patientname" id="patientname" type="text" value="" placeholder="Write patient name" class="form-control"/>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label" for="Content">Content</label>
       <div class="controls">
           <textarea class="form-control" rows="10" name="description"  id="description" placeholder="write discription"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="Content">Medicine</label>
+      <div class="controls">
+          <textarea class="form-control" rows="10" name="medicine"  id="medicine" placeholder="write Medicine"></textarea>
       </div>
     </div>
     <input type="submit" value="Submit" class="btn btn-primary"/>

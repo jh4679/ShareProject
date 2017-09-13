@@ -4,6 +4,7 @@ var parser = new xml2js.Parser();
 
 
 Template.filestest.rendered = function() {
+    $("#patient-link").removeClass('selected');
 	$("#files-link").addClass('selected');
 	$("#search-link").removeClass('selected');
 	$("#login-link").removeClass('selected');

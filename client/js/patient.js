@@ -1,5 +1,6 @@
-Template.board.rendered = function() {
-	$("#board-link").addClass('selected');
+Template.patient.rendered = function() {
+	$("#patient-link").addClass('selected');
+	$("#board-link").removeClass('selected');
 	$("#files-link").removeClass('selected');
 	$("#search-link").removeClass('selected');
 	$("#login-link").removeClass('selected');
@@ -7,7 +8,7 @@ Template.board.rendered = function() {
 
 }
 
-Template.board.helpers({
+Template.patient.helpers({
   posts: function() {
     return Posts.find({}, {sort: {submitted: -1}});
     //return Posts.find();
@@ -19,10 +20,5 @@ Template.postItem.helpers({
   ownPost: function() {
     return this.userId === Meteor.userId();
   },
-  /*domain: function() {
-    var a = document.createElement('a');
-    a.href = this.url;
-    return a.hostname;
-  },*/
  
 });

@@ -1,5 +1,6 @@
 
 Template.search.rendered = function() {
+	$("#patient-link").removeClass('selected');
 	$("#search-link").addClass('selected');
 	$("#profile-link").removeClass('selected');
 	$("#login-link").removeClass('selected');

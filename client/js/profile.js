@@ -1,4 +1,6 @@
 Template.profile.rendered = function() {
+    $("#patient-link").removeClass('selected');
+    $("#patient-link").removeClass('selected');
 	$("#profile-link").addClass('selected');
 	$("#search-link").removeClass('selected');
 	$("#login-link").removeClass('selected');
@@ -24,6 +26,15 @@ Template.profile.helpers({
 			return Meteor.user().username;	//로그인한 상태라면 유저이름을 가져와서 리턴해준다.
 		}
 	}, 
+
+    hospital: function() {
+        if(!Meteor.user()) {    //로그인하지 않았다면(meteor.user가 확인되지 않는다면) 
+            Bert.alert("you are not logged in, permission denied", "danger", "growl-top-right");    //에러를 띄운다.
+            return false;
+        } else {
+            return Meteor.user().hospital;  //로그인한 상태라면 유저이름을 가져와서 리턴해준다.
+        }
+    }, 
 
 	userJokes: function() {
 		var username = Meteor.user().username;

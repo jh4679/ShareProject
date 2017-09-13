@@ -1,4 +1,4 @@
-<template name="board">
+<template name="patient">
 	<nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -8,16 +8,22 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{pathFor 'board'}}">Forum</a>
+        <a class="navbar-brand" href="{{pathFor 'patient'}}">Patient</a>
       </div>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
-          <li><a href="{{pathFor 'postSubmit'}}">Submit Post</a></li> <!--post등록링크-->
-          <li><a href="{{pathFor 'board'}}">Show List</a></li> <!--post 리스트 링크 -->
+          <li><a href="{{pathFor 'treatSubmit'}}">Start treat</a></li> <!--post등록링크-->
+          <!--<li><a href="{{pathFor 'board'}}">Show List</a></li> post 리스트 링크 -->
         </ul>
       </div>
     </div>
    </nav>
+
+   <div class="paientinfo">
+    <center>
+      <h1>환자 nfc 찍으면 정보 뜨기</h1>
+    </center>
+   </div>
 
    <div class="posts">
     {{#each posts}} <!--posts 헬퍼 사용 -->
@@ -29,15 +35,15 @@
 <template name="postItem"> <!--리스트에 보이는 게시글 item들 -->
   <div class="post">
     <div class="post-content">
-      <h3><a href="{{pathFor 'postPage'}}">{{title}}</a><span>{{postname}}</span></h3>
+      <h3><a href="{{pathFor 'treat'}}">{{title}}</a><span>{{patientname}}</span></h3>
         <p>
-        submitted by {{author}},
-        <a href="{{pathFor 'postPage'}}">{{commentsCount}} comments</a></p>
+        submitted by {{docname}},
+        </p>
         <p>
         {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}}
       </p>
     </div>
-    <a href="{{pathFor 'postPage'}}" class="discuss btn btn-default">Discuss</a>
+    <a href="{{pathFor 'treat'}}" class="discuss btn btn-default">Discuss</a>
   </div>
 </template>
 

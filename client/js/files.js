@@ -1,4 +1,5 @@
 Template.files.rendered = function() {
+    $("#patient-link").removeClass('selected');
     $("#files-link").addClass('selected');
     $("#jokes-link").removeClass('selected');
     $("#rankings-link").removeClass('selected');
