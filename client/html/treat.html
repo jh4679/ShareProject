@@ -1,5 +1,5 @@
-<template name="patient">
-	<nav class="navbar navbar-default" role="navigation">
+<template name="treat"> <!--postpage-->
+   <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
@@ -13,37 +13,25 @@
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="nav navbar-nav">
           <li><a href="{{pathFor 'treatSubmit'}}">Start treat</a></li> <!--post등록링크-->
-          <!--<li><a href="{{pathFor 'board'}}">Show List</a></li> post 리스트 링크 -->
+          <li><a href="{{pathFor 'patient'}}">Show List</a></li> <!--post 리스트 링크 -->
         </ul>
       </div>
     </div>
    </nav>
-
-   <div class="paientinfo">
-    <center>
-      <h1>환자 nfc 찍으면 정보 뜨기</h1>
-    </center>
-   </div>
-
-   <div class="posts">
-    {{#each posts}} <!--posts 헬퍼 사용 -->
-      {{> postItem}}
-    {{/each}}
-   </div>
+  {{> postDiscuss}}
+   
 </template>
 
-<template name="postItem"> <!--리스트에 보이는 게시글 item들 -->
+<template name="postDiscuss"> <!--게시글을 눌렀을때 보이는 개별 게시글 -->
   <div class="post">
     <div class="post-content">
-      <h3><a href="{{pathFor 'treat'}}">{{title}}</a><span>{{patientname}}</span></h3>
-        <p>
-        submitted by {{docname}},
-        </p>
-        <p>
-        {{#if ownPost}}<a href="{{pathFor 'postEdit'}}">Edit</a>{{/if}}
-      </p>
+      <h2>Title : {{title}}</h2>
+      <p>Patient Name : {{patientname}}</p>
+      <p>Description</p>
+      <p>{{description}}</p>
+      <p>medicine</p>
+      <p>{{medicine}}</p>
     </div>
-    <a href="{{pathFor 'treat'}}" class="discuss btn btn-default">Discuss</a>
   </div>
 </template>
 

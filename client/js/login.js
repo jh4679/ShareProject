@@ -5,6 +5,7 @@ Tracker.autorun(function(){
 });
 
 Template.login.rendered = function() {
+	$("#patient-link").removeClass('selected');
 	$("#login-link").addClass('selected');
 	$("#profile-link").removeClass('selected');
 	$("#patient-link").removeClass('selected');
@@ -15,10 +16,18 @@ Template.login.events({
 		var email = trimInput(event.target.email.value);
 		var password = trimInput(event.target.password.value);
 
+<<<<<<< HEAD
 		if(isNotEmpty(email) &&
 			isNotEmpty(password) &&
 			isEmail(email) &&
 			isValidPassword(password)){
+=======
+		if(isNotEmpty(email) &&		//이메일이 비어있지않고 
+			isNotEmpty(hospital) &&
+			isNotEmpty(password) &&		//비밀번호도 비어있지않고 
+			isEmail(email) &&		//이메일형식에 맞고
+			isValidPassword(password)){		//맞는 비밀번호라면
+>>>>>>> origin/master
 
 			Meteor.loginWithPassword(email, password, function(err){
 				if(err) {
