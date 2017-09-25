@@ -1,6 +1,6 @@
 <head>
 	<meta charset="utf-8">
-	<title>EtherShare - the Sharing Project</title>
+	<title>ETHER HEALTH</title>
 	<meta name="keywords" content="">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,
@@ -13,13 +13,13 @@
 	</head>
 
 <body>
-	{{> bertAlert}}		<!--bertalert 를 쓰려면 이거 써줘야됨 -->
-	{{> sidebar}}		<!-- 이거 적고 레이아웃 템플릿에 yield 써주기 -->
+	{{> bertAlert}}
+	{{> sidebar}}
 	<!-- This is where main layout is rendered --> 
 </body>
 
-<template name="main_layout">	<!-- routes 에서 이 템플릿을 레이아웃 템플릿으로 지정하자! -->
+<template name="main_layout">
 	<div class="main-content">
-		{{> yield}}		<!--yield 적어줘야됨 -->
+		{{> yield}}
 	</div>
 </template>

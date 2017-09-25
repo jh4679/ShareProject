@@ -2,16 +2,12 @@ Tracker.autorun(function(){
 	if(Meteor.userId()){
 		Router.go("/");
 	}
-});	
+});
 
 Template.login.rendered = function() {
 	$("#login-link").addClass('selected');
 	$("#profile-link").removeClass('selected');
-	$("#rankings-link").removeClass('selected');
-	$("#search-link").removeClass('selected');
-	$("#jokes-link").removeClass('selected');
-	$("#files-link").removeClass('selected');
-	$("#board-link").removeClass('selected');
+	$("#patient-link").removeClass('selected');
 }
 
 Template.login.events({
@@ -19,18 +15,18 @@ Template.login.events({
 		var email = trimInput(event.target.email.value);
 		var password = trimInput(event.target.password.value);
 
-		if(isNotEmpty(email) &&		//이메일이 비어있지않고 
-			isNotEmpty(password) &&		//비밀번호도 비어있지않고 
-			isEmail(email) &&		//이메일형식에 맞고
-			isValidPassword(password)){		//맞는 비밀번호라면
+		if(isNotEmpty(email) &&
+			isNotEmpty(password) &&
+			isEmail(email) &&
+			isValidPassword(password)){
 
-			Meteor.loginWithPassword(email, password, function(err){	//이함수를 실행하는데 
-				if(err) {	//에러가 났을시에는
-					Bert.alert(err.reason, "danger", "growl-top-right");	//에러의 이유와 에러를 띄우고
-					return false;											//err.reason은 accounts-password의 메소드, 자동으로 어떤오류인지 오류를 알려줌
-				} else {	//정상동작했다면 
-					Router.go("/jokes");	//링크로 이동하고
-					Bert.alert("You are now logged in", "success", "growl-top-right");	//완료메시지 띄운다.
+			Meteor.loginWithPassword(email, password, function(err){
+				if(err) {
+					Bert.alert(err.reason, "danger", "growl-top-right");
+					return false;
+				} else {
+					Router.go("/");
+					Bert.alert("You are now logged in", "success", "growl-top-right");
 				}
 			});
 
@@ -44,7 +40,7 @@ Template.login.events({
 // Validation Rules
 
 // Trim Helper
-var trimInput = function(val){	//쓸데없는 기호같은거 공백으로 바꿔줌
+var trimInput = function(val){
 	return val.replace(/^\s*|\s*$/g, "");
 };
 

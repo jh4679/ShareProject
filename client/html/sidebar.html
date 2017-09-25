@@ -1,24 +1,18 @@
 <template name="sidebar">
 	<aside class="sidebar-left"> 
-	<img src="SHARE.png" class="icon">
-	<a class="company-logo" href="/">ETHERSHARE</a>
+	<img src="logo.png" class="icon">
+	<a class="company-logo" href="/">ETHER HEALTH</a>
 		<div class="sidebar-links">
 			{{#if currentUser}}
 			<a class="link-red" href="/profile" id="profile-link"><i class="fa fa-user"></i>Profile</a>
+			<a class="link-blue" href="/ether" id="ether-link"><i class="fa fa-user"></i>Ethereum</a>
 			{{else}}
-			<a class="link-purple login" href="/login" id="login-link"><i class="fa fa-sign-in"></i>Login</a>
 			{{/if}}
-
-
-			<a class="link-blue" href="/files" id="files-link"><i class="fa fa-folder"></i>Files</a>
-
-			<a class="link-yellow" href="/board" id="board-link"><i class="fa fa-comment"></i>Board</a>
-
-			<a class="link-green" href="/search" id="search-link"><i class="fa fa-search"></i>Search</a>
+			<a class="link-green" href="/patient" id="patient-link"><i class="fa fa-search"></i>Patient</a>
 			{{#if currentUser}}
 			<a class="link-purple logout" href="#" id="logout-link"><i class="fa fa-sign-out"></i>Logout</a>
 			{{else}}
-			
+			<a class="" href="/login" id="login-link"><i class="fa fa-sign-in"></i>Login</a>
 			{{/if}}
 		</div>
 	</aside>

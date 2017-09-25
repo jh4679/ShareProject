@@ -1,9 +1,8 @@
 Template.profile.rendered = function() {
+    $("#patient-link").removeClass('selected');
 	$("#profile-link").addClass('selected');
-	$("#search-link").removeClass('selected');
 	$("#login-link").removeClass('selected');
-	$("#files-link").removeClass('selected');
-    $("#board-link").removeClass('selected');
+
 }
 
 Template.profile.helpers({
@@ -25,24 +24,14 @@ Template.profile.helpers({
 		}
 	}, 
 
-	userJokes: function() {
-		var username = Meteor.user().username;
-		var userId = Meteor.userId();
-		var userJokes = Jokes.find({userId: userId}, {sort: {createdAt: -1}});	//현재 로그인한 유저의 아이디에 해당하는 jokes를 모두 보여줌
-		return userJokes;	//html에서 {{#each Userjokes를 통해 모든 내용을 보여주게 된다.}}
-	},
-
-	userLaughScore: function() {
-		return Meteor.user().profile.laughScore;	//현재 로그인한 유저의 db정보에서 laughScore를 리턴해준다.
-	},
-
-	userFrownScore: function() {
-		return Meteor.user().profile.frownScore;	//현재 로그인한 유저의 db정보에서 frownScore를 리턴해준다.
-	},
-
-	userPukeScore: function() {
-		return Meteor.user().profile.pukeScore;		//현재 로그인한 유저의 db정보에서 pukeScore를 리턴해준다.
-	},
+    hospital: function() {
+        if(!Meteor.user()) {    //로그인하지 않았다면(meteor.user가 확인되지 않는다면) 
+            Bert.alert("you are not logged in, permission denied", "danger", "growl-top-right");    //에러를 띄운다.
+            return false;
+        } else {
+            return Meteor.user().profile.hospital;  //로그인한 상태라면 병원이름을 가져와서 리턴해준다.
+        }
+    }, 
 
 	UserImages: function() {
 		var username = Meteor.user().username;

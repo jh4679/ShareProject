@@ -8,11 +8,13 @@ Template.signup.events({
 		var email = trimInput(event.target.email.value);
 		var password = trimInput(event.target.password.value);
 		var password2 = trimInput(event.target.password2.value);
+		var hospital = trimInput(event.target.hospital.value);
 
 		if(isNotEmpty(email) &&		//이메일이 빈칸이 아니어야함
 			isNotEmpty(username) &&		//이름도 빈칸이 아니어야함
 			isNotEmpty(password) &&		//비밀번호도 빈칸이 아니어야함
 			isEmail(email) &&	//이메일 형식에 맞아야함
+			isNotEmpty(hospital) &&
 			areValidPasswords(password, password2)) {	//비밀번호 확인이 맞아야함
 
 			Accounts.createUser({	//account패키지의 메소드 자동으로 양식에 맞게 디비를 생성해준다.
@@ -20,17 +22,14 @@ Template.signup.events({
 				email: email,
 				password: password,
 				profile: {
-					laughScore: 0,
-					frownScore: 0,
-					pukeScore: 0,
-					voted: [],
-				}
+					hospital:hospital,
+				}		
 			}, function(err){
 				if(err){
 					Bert.alert(err.reason, "danger", "growl-top-right");	//에러메시지 출력
 				} else {
 					Bert.alert("Account Created! You Are Now Logged In", "success", "growl-top-right");	//정상완료 메시지 출력
-					Router.go("/jokes");	//링크로 이동
+					Router.go("/");	//링크로 이동
 
 				}
 			});
@@ -87,14 +86,3 @@ areValidPasswords = function(password, confirm) {
 	}
 	return true;
 };
-
-
-
-
-
-
-
-
-
-
-
